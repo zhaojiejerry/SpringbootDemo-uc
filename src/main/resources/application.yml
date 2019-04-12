@@ -2,7 +2,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: jerry8199
+    password: root
     url: jdbc:mysql://localhost:3306/ucDemo?useUnicode=true&characterEncoding=utf8
   freemarker:
     suffix: .ftl  #后缀名

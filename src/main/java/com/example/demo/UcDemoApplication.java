@@ -1,4 +1,5 @@
 package com.example.demo;
+import org.mybatis.spring.annotation.MapperScan;
 /**
  * 
  * @author 李兆杰
@@ -15,6 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import static springfox.documentation.builders.PathSelectors.regex;
 @EnableSwagger2
 @SpringBootApplication
+@MapperScan(basePackages = "com.example.demo.dao")
 public class UcDemoApplication {
 
 	public static void main(String[] args) {

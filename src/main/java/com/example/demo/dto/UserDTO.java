@@ -1,21 +1,15 @@
-package com.example.demo.entity;
-import java.io.Serializable;
-import java.util.List;
-
-import lombok.Data;
+package com.example.demo.dto;
 /**
  * 
-     * Demo 用户实体类
+     * Demo User传输对象实体
      * 
      * @author 李兆杰
-     * @date 2019/04/08
+     * @date 2019/04/10
  */
-@Data
-public class User implements Serializable {
-    /**
-	 * 序列化版本号
-	 */
-	private static final long serialVersionUID = 1L;
+
+import com.example.demo.entity.Organization;
+
+public class UserDTO {
 	/**
      *姓名
      */
@@ -53,16 +47,10 @@ public class User implements Serializable {
 	 */
 	private String password;
 	/**
-	 * 角色列表
+	 * 机构实体
 	 */
-	private List<Role> roles;
+	private Organization organization;
 	
-	public List<Role> getRoles() {
-		return roles;
-	}
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
 	public String getName() {
 		return name;
 	}
@@ -93,16 +81,11 @@ public class User implements Serializable {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	
 	public String getOrganizationId() {
 		return organizationId;
 	}
 	public void setOrganizationId(String organizationId) {
 		this.organizationId = organizationId;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 	public String getGender() {
 		return gender;
@@ -121,6 +104,12 @@ public class User implements Serializable {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public Organization getOrganization() {
+		return organization;
+	}
+	public void setOrganization(Organization organization) {
+		this.organization = organization;
 	}
 	
 }

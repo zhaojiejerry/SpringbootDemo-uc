@@ -33,4 +33,8 @@ public interface UserService {
 	 * @return
 	 */
 	public int updateUser(User user);
+	/**
+	 * 获取用户和角色信息
+	 */
+	public List<User> getAllUserAndRole();
 }

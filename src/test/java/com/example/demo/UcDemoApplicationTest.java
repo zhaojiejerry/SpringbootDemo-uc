@@ -14,7 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
      * @date 2019/04/08
  */
 @RunWith(SpringRunner.class)
-
 @SpringBootTest
 public class UcDemoApplicationTest {
 

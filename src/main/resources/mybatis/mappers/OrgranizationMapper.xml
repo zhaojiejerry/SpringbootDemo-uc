@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.OrganizationDao">
+    <resultMap type="com.example.demo.entity.Organization" id="BaseResultMap">
+    	<id column="id" property="id" jdbcType="INTEGER" />
+	    <result column="name" property="name" jdbcType="VARCHAR" />
+	    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+	    <result column="type_id" property="typeId" jdbcType="INTEGER" />
+	    <result column="level_code" property="levelCode" jdbcType="VARCHAR" />
+	    <result column="level" property="level" jdbcType="INTEGER" />
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+    id,name,parent_id,type_id,type_id,level,level_Code
+    </sql>
+    
+    <select id="getUserOrganizationsLevelCode" resultType="String" parameterType="String">
+        select a.level_code from organization a left join userinfo b
+         on a.id = b.organization_id where b.user_name=#{userName}
+    </select>
+    
+    <select id="getUserOrganizations"  parameterType="list" resultType="com.example.demo.entity.Organization">
+    select <include refid="Base_Column_List"/> from organization where level_code
+    in
+    <foreach collection="pathList" item="item" open="(" separator="," close=")">
+    	#{item}
+    </foreach> 
+    order by id
+    </select>
+    
+    <select id="getOrganizationsByType" parameterType="integer" resultType="com.example.demo.entity.Organization">
+    select <include refid="Base_Column_List"/> from organization where type_id =#{typeId}
+    </select>
+    
+    <select id="getAllSuborganizationsById" parameterType="integer" resultType="com.example.demo.entity.Organization">
+    select <include refid="Base_Column_List"/> 
+    from organization where level_code 
+    like CONCAT((SELECT level_code FROM organization where id =#{id}),'%') 
+    </select>
+    
+    
+</mapper>
