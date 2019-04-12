@@ -19,6 +19,5 @@ public class RoleController {
 	@RequestMapping(value = "listRoles")
 	public List<RoleDTO> getRoleList(){
 		return roleService.getRoleList();
-		
 	}
 }

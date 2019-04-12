@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  */
 public class RoleDTO {
 	/**
-     * 角色名称
+             * 角色名称
      */
 	private String roleName;
 	/**
