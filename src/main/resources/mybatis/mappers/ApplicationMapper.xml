@@ -42,7 +42,7 @@
 	 </set>
 		where id in
 	<foreach collection="list" index="index" item="item" open="(" close=")" separator=",">
-	 #{item.id}
+	 #{item}
 	</foreach>
 	</update>
 </mapper>

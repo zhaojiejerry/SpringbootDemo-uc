@@ -13,7 +13,7 @@ public interface ApplicationDao {
 	
 	public int dynamicUpdate(Map<String,Object> map);
 	
-	public List<Application> batchDeleteApplicatons(List<Integer> ids);
+	public List<Application> batchDeleteApplicatons(@Param("list") List<String> list);
 	
-	public int batchUpdateApplications(@Param("list") List<Integer> ids);
+	public int batchUpdateApplications(@Param("list") List<String> ids);
 }

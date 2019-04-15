@@ -11,7 +11,7 @@ public interface ApplicationService {
 	
 	public int dynamicUpdate(Map<String,Object> map);
 	
-	public List<Application> batchDeleteApplicatons(List<Integer> ids);
+	public List<Application> batchDeleteApplicatons(List<String> ids);
 	
-	public int batchUpdateApplications(List<Integer> ids);
+	public int batchUpdateApplications(List<String> ids);
 }

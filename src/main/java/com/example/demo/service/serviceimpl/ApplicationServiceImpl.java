@@ -25,11 +25,11 @@ public class ApplicationServiceImpl implements ApplicationService{
 		return applicationDao.dynamicUpdate(map);
 	}
 	@Override
-	public List<Application> batchDeleteApplicatons(List<Integer> ids) {
+	public List<Application> batchDeleteApplicatons(List<String> ids) {
 		return  applicationDao.batchDeleteApplicatons(ids);	
 	}
 	@Override
-	public int batchUpdateApplications(List<Integer> ids) {
+	public int batchUpdateApplications(List<String> ids) {
 		// TODO Auto-generated method stub
 		return applicationDao.batchUpdateApplications(ids);
 	}

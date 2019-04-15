@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.example.demo.entity.Application;
 import com.example.demo.service.ApplicationService;
 
@@ -44,11 +46,11 @@ public class ApplicationController {
 	}
 	@PostMapping(value ="DeleteBatch")
 	public String deleteBatch(String  ids) {
-		List<Integer> list = new ArrayList<Integer>();
-		/**
-		 * json转list
-		 */
-		int result = appService.batchUpdateApplications(list);
+		Map<String, Object> inparam = JSON.parseObject(ids,Map.class);
+		String _ids = (String) inparam.get("ids");
+		String[] arr = _ids.split(",");
+		List<String> idList = Arrays.asList(arr);
+		int result = appService.batchUpdateApplications(idList);
 		if (result > 0) {
 			return "删除成功";
 		}

@@ -23,11 +23,10 @@ public class UcDemoApplication {
 		SpringApplication.run(UcDemoApplication.class, args);
 	}
 	@Bean
-    public Docket demoApi() {
+    public Docket demoApi() { 
         return new Docket(DocumentationType.SWAGGER_2).select()
                 .apis(RequestHandlerSelectors.basePackage("com.example.demo"))
                 .paths(regex("/uc.*")).build();
-
     }
 
 }

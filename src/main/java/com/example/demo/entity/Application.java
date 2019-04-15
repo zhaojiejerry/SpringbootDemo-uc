@@ -14,6 +14,11 @@ public class Application {
 	 * 应用类型
 	 */
 	private Integer typeId;
+	/**
+	 * 
+	 * 是否删除
+	 */
+	private Integer isDeleted;
 	
 	public Integer getTypeId() {
 		return typeId;
